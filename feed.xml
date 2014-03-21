@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bovard's List</title>
+    <atom:link href="http://bovard.github.io/feed.xml" rel="self" type="application/rss+xml"></atom:link>
+    <link>http://bovard.github.io</link>
+    <description>Things I've (nearly) done.</description>
+    <pubDate>Mon, 01 Nov 2010 15:00:00 -0600</pubDate>
+    <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
+    <language>en</language>
+    <item>
+      <title>Planet Wars!</title>
+      <link>http://bovard.github.io/articles/google_ai_challenge_2010/</link>
+      <pubDate>Mon, 01 Nov 2010 15:00:00 -0600</pubDate>
+      <guid isPermaLink="true">http://bovard.github.io/articles/google_ai_challenge_2010/</guid>
+      <author></author>
+      <description>&lt;p&gt;My entry to the 2010 &lt;a href=&quot;http://planetwars.aichallenge.org/&quot;&gt;Planet Wars&lt;/a&gt; AI competition!&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;span&gt;&lt;/p&gt;
+&lt;h4 id=&quot;description&quot;&gt;Description&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;http://planetwars.aichallenge.org/&quot;&gt;Planet Wars&lt;/a&gt; was the 3rd of a &lt;a href=&quot;http://aichallenge.org/&quot;&gt;series&lt;/a&gt;
+of AI programming competitions organized by the University of Waterloo Computer
+Science Club and sponsored by Google.
+This was the first time programming really clicked for me!
+Unfortunately they’ve stopped hosting competitions but I’ll always look back on it fondly.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://bovard.github.io/articles/google_ai_challenge_2010/PlanetWars.png&quot; alt=&quot;Plant Wars&quot;&gt;&lt;/p&gt;
+&lt;p&gt;In planet wars competitors must command fleets of ships around a small planetary system.
+Any planets you own create ships for you at a rate proportional to their size.
+Neutral (grey) planets don’t create ships until they’ve been captured by either side.
+This simple game play mechanic lead to some really interesting things!&lt;/p&gt;
+&lt;h4 id=&quot;code&quot;&gt;Code&lt;/h4&gt;
+&lt;p&gt;My first foray into python and boy is it ugly! Looking at is now I’m really surprised I did well.
+I guess hard work and enthusiasm count for a lot. If really want to take a look you can find the code
+&lt;a href=&quot;https://github.com/bovard/planet-wars&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;One of the most interesting things I did was implement the ant colony optimization and
+artificial bee colony algorithms. Ultimately I didn’t end up using these as they didn’t
+perform that well when a single ship could make the difference between victory and defeat.&lt;/p&gt;
+&lt;h4 id=&quot;results&quot;&gt;Results&lt;/h4&gt;
+&lt;p&gt;I came in &lt;a href=&quot;http://planetwars.aichallenge.org/profile.php?user_id=8475&quot;&gt;79th&lt;/a&gt; out of 4600 working entries.&lt;/p&gt;
+&lt;h6 id=&quot;written-03-20-2014&quot;&gt;Written 03/20/2014&lt;/h6&gt;
+</description>
+    </item>
+  </channel>
+</rss>
