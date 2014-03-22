@@ -30,13 +30,12 @@
     <div id="content">
       <div class="content-wrap">
         <article class="article">
-          <section class="content"><p>My entry to Battle Code&nbsp;2011</p>
+          <section class="content"><p>In which I abuse inheritance.&nbsp;Heavily.</p>
 <p><span class="more"><span></p>
 <h4 id="description">Description</h4>
 <p><a href="http://battlecode.org/">Battle Code</a> is a yearly competition hosted by <span class="caps">MIT</span>.
 Competitors design an AI to control robots to lead them to battle on the virtual battlefield!
 Each robot is running on a separate thread so communication between bots is&nbsp;limited.</p>
-<h4 id="code">Code</h4>
 <p>Fresh from my win in the Google <span class="caps">AI</span> Challenge, I recruited a team from there to head over
 and do Battle Code. Unfortunately none of them wrote a line of code.
 This dampened my spirits but I was ready to push&nbsp;forward!</p>
@@ -68,6 +67,7 @@ each direction, receive messages, and carry a specified weight of components.
 These components were broken into 4 categories: builders, sensors, weapons and&nbsp;communication.</p>
 <p>You can read more about the details of the contest on the winning team’s <a href="http://blog.stevearc.com/2011/12/17/battlecode-postmortem.html">post-mortem blog post</a>.
 But lets just say the winning strategy involved heavy chassis with a teleport component, a hammer and a mountain of&nbsp;armor.</p>
+<h4 id="code">Code</h4>
 <p>Being a fresh graduate of a Java-based undergraduate program I did the first
 thing that came to mind: misuse the #*%&amp; out of&nbsp;inheritance.</p>
 <p>What happened next was a Daily <span class="caps">WTF</span>-worthy inheritance&nbsp;tree:</p>
@@ -75,7 +75,10 @@ thing that came to mind: misuse the #*%&amp; out of&nbsp;inheritance.</p>
   ^-SensorRobotSystem
     ^-BuilderSensorRobotSystem
       ^-WeaponBuilderSensorRobotSystem
-</code></pre><p>Walking away from this I learned first-hand the perils of ignoring the <code>composition over inheritance</code> mantra.</p>
+</code></pre><p>Not only does a WeaponBuilderSensorRobotSystem never build anything but also sometimes they don’t have a sensor!
+As the competition entered its final week I learned just how painful major refactors
+are when the function you are calling could be in one of four files (or all four)! You can check out the code on my <a href="https://github.com/bovard/robo-rumble">github</a>.</p>
+<p>Walking away from this I learned first-hand the perils of ignoring the <code>composition over inheritance</code> mantra.</p>
 <h4 id="results">Results</h4>
 <p>I placed about the middle of the pack overall but I was the 2<span class="ord">nd</span> place non-<span class="caps">MIT</span>&nbsp;team.</p>
 <h6 id="written-03-22-2014">Written&nbsp;03/22/2014</h6>

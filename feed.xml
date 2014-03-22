@@ -14,13 +14,12 @@
       <pubDate>Sat, 05 Feb 2011 15:00:00 -0700</pubDate>
       <guid isPermaLink="true">http://bovard.github.io/articles/battle_code_2011/</guid>
       <author></author>
-      <description>&lt;p&gt;My entry to Battle Code 2011&lt;/p&gt;
+      <description>&lt;p&gt;In which I abuse inheritance. Heavily.&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;span&gt;&lt;/p&gt;
 &lt;h4 id=&quot;description&quot;&gt;Description&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&quot;http://battlecode.org/&quot;&gt;Battle Code&lt;/a&gt; is a yearly competition hosted by MIT.
 Competitors design an AI to control robots to lead them to battle on the virtual battlefield!
 Each robot is running on a separate thread so communication between bots is limited.&lt;/p&gt;
-&lt;h4 id=&quot;code&quot;&gt;Code&lt;/h4&gt;
 &lt;p&gt;Fresh from my win in the Google AI Challenge, I recruited a team from there to head over
 and do Battle Code. Unfortunately none of them wrote a line of code.
 This dampened my spirits but I was ready to push forward!&lt;/p&gt;
@@ -52,6 +51,7 @@ each direction, receive messages, and carry a specified weight of components.
 These components were broken into 4 categories: builders, sensors, weapons and communication.&lt;/p&gt;
 &lt;p&gt;You can read more about the details of the contest on the winning team’s &lt;a href=&quot;http://blog.stevearc.com/2011/12/17/battlecode-postmortem.html&quot;&gt;post-mortem blog post&lt;/a&gt;.
 But lets just say the winning strategy involved heavy chassis with a teleport component, a hammer and a mountain of armor.&lt;/p&gt;
+&lt;h4 id=&quot;code&quot;&gt;Code&lt;/h4&gt;
 &lt;p&gt;Being a fresh graduate of a Java-based undergraduate program I did the first
 thing that came to mind: misuse the #*%&amp;amp; out of inheritance.&lt;/p&gt;
 &lt;p&gt;What happened next was a Daily WTF-worthy inheritance tree:&lt;/p&gt;
@@ -59,7 +59,10 @@ thing that came to mind: misuse the #*%&amp;amp; out of inheritance.&lt;/p&gt;
   ^-SensorRobotSystem
     ^-BuilderSensorRobotSystem
       ^-WeaponBuilderSensorRobotSystem
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Walking away from this I learned first-hand the perils of ignoring the &lt;code&gt;composition over inheritance&lt;/code&gt; mantra.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Not only does a WeaponBuilderSensorRobotSystem never build anything but also sometimes they don’t have a sensor!
+As the competition entered its final week I learned just how painful major refactors
+are when the function you are calling could be in one of four files (or all four)! You can check out the code on my &lt;a href=&quot;https://github.com/bovard/robo-rumble&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Walking away from this I learned first-hand the perils of ignoring the &lt;code&gt;composition over inheritance&lt;/code&gt; mantra.&lt;/p&gt;
 &lt;h4 id=&quot;results&quot;&gt;Results&lt;/h4&gt;
 &lt;p&gt;I placed about the middle of the pack overall but I was the 2nd place non-MIT team.&lt;/p&gt;
 &lt;h6 id=&quot;written-03-22-2014&quot;&gt;Written 03/22/2014&lt;/h6&gt;
@@ -71,7 +74,7 @@ thing that came to mind: misuse the #*%&amp;amp; out of inheritance.&lt;/p&gt;
       <pubDate>Mon, 01 Nov 2010 15:00:00 -0600</pubDate>
       <guid isPermaLink="true">http://bovard.github.io/articles/google_ai_challenge_2010/</guid>
       <author></author>
-      <description>&lt;p&gt;My entry to the 2010 Google AI Challenge&lt;/p&gt;
+      <description>&lt;p&gt;In which I discover python and kick butt.&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;span&gt;&lt;/p&gt;
 &lt;h4 id=&quot;description&quot;&gt;Description&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&quot;http://planetwars.aichallenge.org/&quot;&gt;Planet Wars&lt;/a&gt; was the 3rd of a &lt;a href=&quot;http://aichallenge.org/&quot;&gt;series&lt;/a&gt;
