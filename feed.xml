@@ -4,10 +4,26 @@
     <title>Bovard's List</title>
     <atom:link href="http://bovard.github.io/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://bovard.github.io</link>
-    <description>Things I've (nearly) done.</description>
-    <pubDate>Mon, 01 Nov 2010 15:00:00 -0600</pubDate>
+    <description>Projects I've (nearly) finished.</description>
+    <pubDate>Sat, 05 Feb 2011 15:00:00 -0700</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>Battle Code 2011!</title>
+      <link>http://bovard.github.io/articles/battle_code_2011/</link>
+      <pubDate>Sat, 05 Feb 2011 15:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://bovard.github.io/articles/battle_code_2011/</guid>
+      <author></author>
+      <description>&lt;p&gt;My entry to Battle Code 2011&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;span&gt;&lt;/p&gt;
+&lt;h4 id=&quot;description&quot;&gt;Description&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;http://battlecode.org/&quot;&gt;Battle Code&lt;/a&gt; is a yearly competition hosted by MIT.&lt;/p&gt;
+&lt;h4 id=&quot;code&quot;&gt;Code&lt;/h4&gt;
+&lt;h4 id=&quot;results&quot;&gt;Results&lt;/h4&gt;
+&lt;p&gt;I came about the middle of the pack overall but I was the 2nd place non-MIT team.&lt;/p&gt;
+&lt;h6 id=&quot;written-03-22-2014&quot;&gt;Written 03/22/2014&lt;/h6&gt;
+</description>
+    </item>
     <item>
       <title>Planet Wars!</title>
       <link>http://bovard.github.io/articles/google_ai_challenge_2010/</link>
