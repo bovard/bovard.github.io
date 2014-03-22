@@ -33,10 +33,51 @@
           <section class="content"><p>My entry to Battle Code&nbsp;2011</p>
 <p><span class="more"><span></p>
 <h4 id="description">Description</h4>
-<p><a href="http://battlecode.org/">Battle Code</a> is a yearly competition hosted by&nbsp;<span class="caps">MIT</span>.</p>
+<p><a href="http://battlecode.org/">Battle Code</a> is a yearly competition hosted by <span class="caps">MIT</span>.
+Competitors design an AI to control robots to lead them to battle on the virtual battlefield!
+Each robot is running on a separate thread so communication between bots is&nbsp;limited.</p>
 <h4 id="code">Code</h4>
+<p>Fresh from my win in the Google <span class="caps">AI</span> Challenge, I recruited a team from there to head over
+and do Battle Code. Unfortunately none of them wrote a line of code.
+This dampened my spirits but I was ready to push&nbsp;forward!</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="/articles/battle_code_2011/flying2.png" alt="Flying"></td>
+<td><img src="/articles/battle_code_2011/light1.png" alt="Light"></td>
+<td><img src="/articles/battle_code_2011/medium2.png" alt="Medium"></td>
+<td><img src="/articles/battle_code_2011/turret2.png" alt="Turret"></td>
+<td><img src="/articles/battle_code_2011/armory2.png" alt="Armory"></td>
+<td><img src="/articles/battle_code_2011/building2.png" alt="Building"></td>
+<td><img src="/articles/battle_code_2011/dummy2.png" alt="Dummy"></td>
+<td><img src="/articles/battle_code_2011/factory2.png" alt="Factory"></td>
+<td><img src="/articles/battle_code_2011/recycler2.png" alt="Recycler"></td>
+</tr>
+</tbody>
+</table>
+<h6 id="a-selection-of-buildings-and-units-from-2012">A selection of buildings and units from&nbsp;2012</h6>
+<p>This year’s unique challenge was modular robots. To start with you chose a chassis
+(heavy, medium, light, or flying). By default each chassis could sense obstacles 1 square in
+each direction, receive messages, and carry a specified weight of components.
+These components were broken into 4 categories: builders, sensors, weapons and&nbsp;communication.</p>
+<p>You can read more about the details of the contest on the winning team’s <a href="http://blog.stevearc.com/2011/12/17/battlecode-postmortem.html">post-mortem blog post</a>.
+But lets just say the winning strategy involved heavy chassis with a teleport component, a hammer and a mountain of&nbsp;armor.</p>
+<p>Being a fresh graduate of a Java-based undergraduate program I did the first
+thing that came to mind: misuse the #*%&amp; out of&nbsp;inheritance.</p>
+<p>What happened next was a Daily <span class="caps">WTF</span>-worthy inheritance&nbsp;tree:</p>
+<pre><code>RobotSystem
+  ^-SensorRobotSystem
+    ^-BuilderSensorRobotSystem
+      ^-WeaponBuilderSensorRobotSystem
+</code></pre><p>Walking away from this I learned first-hand the perils of ignoring the <code>composition over inheritance</code> mantra.</p>
 <h4 id="results">Results</h4>
-<p>I came about the middle of the pack overall but I was the 2<span class="ord">nd</span> place non-<span class="caps">MIT</span>&nbsp;team.</p>
+<p>I placed about the middle of the pack overall but I was the 2<span class="ord">nd</span> place non-<span class="caps">MIT</span>&nbsp;team.</p>
 <h6 id="written-03-22-2014">Written&nbsp;03/22/2014</h6>
 </section>
         </article>
