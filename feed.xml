@@ -5,13 +5,70 @@
     <atom:link href="http://bovard.github.io/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://bovard.github.io</link>
     <description>Projects I've (nearly) finished.</description>
-    <pubDate>Sat, 05 Feb 2011 15:00:00 -0700</pubDate>
+    <pubDate>Fri, 01 Feb 2013 15:00:00 -0500</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
     <item>
+      <title>BattleCode 2013</title>
+      <link>http://bovard.github.io/articles/battle_code_2013/</link>
+      <pubDate>Fri, 01 Feb 2013 15:00:00 -0500</pubDate>
+      <guid isPermaLink="true">http://bovard.github.io/articles/battle_code_2013/</guid>
+      <author></author>
+      <description>&lt;p&gt;In which we win great victories.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;span&gt;&lt;/p&gt;
+&lt;h4 id=&quot;description&quot;&gt;Description&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;http://battlecode.org/&quot;&gt;Battle Code&lt;/a&gt; is a yearly competition hosted by MIT.
+Competitors design an AI to control robots to lead them to battle on the virtual battlefield!
+Each robot is running on a separate thread so communication between bots is limited.&lt;/p&gt;
+&lt;p&gt;After not getting around to writing an entry for 2012 I was a bit ambivalent about
+participating in 2013 but after it was clear that I had a good team that was actually
+going to contribute, I was in!&lt;/p&gt;
+&lt;p&gt;This year’s challenge involved a rock, paper, scissors-like strategies: nuke, rush and econ.
+Each player started out with a base that could spend time doing one of two things: spawning
+soldiers (took 8 turns) or doing research (anywhere from 100 - 400 turns). Every soldier was the same and they could find special
+‘encampment’ squares and transform themselves into one of the encampment types
+(artillery, generators, power supply, med base or shield). The game ended when your soldiers
+destroyed the enemy hq or you were able to research nuke (took about 400 rounds).&lt;/p&gt;
+&lt;p&gt;The rush strategy was basically that, rushing your soldiers over to the enemy hq! The two bases were separated
+by at least 50 rounds (or so) of navigation. Which meant that you could spawn a soldier
+and by the timeit got to the enemy base it would be 2v1. That’s assuming that the
+enemy didn’t spawn any encampments (which is usually a good bet that they did). The rush
+was incredibly powerful in the first week due in part to its lower barrier of entry
+and limited scope.&lt;/p&gt;
+&lt;p&gt;The nuke strategy was also pretty straight-forward: build a nuke. There was a lot of subtle
+variations on this: how many soldiers should I build? should I only build if there
+is an artillery spot near my base? only if I’m in a corner? etc…&lt;/p&gt;
+&lt;p&gt;Finally there was the econ strategy. For every generator and power supply you built you were able
+to build soldiers faster and support more soldiers (respectively). In the econ strat
+you invested to varying degrees in econ in hope of overwhelming the enemy late-game.&lt;/p&gt;
+&lt;h4 id=&quot;code&quot;&gt;Code&lt;/h4&gt;
+&lt;p&gt;For our main logic structure for the bots we used something called a decision tree.
+Basically we created a tree structure in which every node had a pre/post condition and
+an action. Additionally there were selector nodes, which would select a child action
+to run based on the environment. The loop ran something like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;observe_environment()
+choose_action_from_tree()
+execute_action()
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This allowed up to build up several different trees to rapidly build out different
+soldier roles that could be easily composed and switched. Here’s a list of the more interesting
+roles:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Backdoor soldier (run around the edges of the map to attack from behind)&lt;/li&gt;
+&lt;li&gt;Encampment hunter (checks enemy encampment spots while avoiding combat)&lt;/li&gt;
+&lt;li&gt;Miner (laid mines around the base)&lt;/li&gt;
+&lt;li&gt;Defender (defended the hq)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can find the &lt;a href=&quot;https://github.com/bovard/BC2013&quot;&gt;code&lt;/a&gt; on my github.&lt;/p&gt;
+&lt;h4 id=&quot;results&quot;&gt;Results&lt;/h4&gt;
+&lt;p&gt;We ended up going to the finals at MIT! but lost out (0-2) while there giving us
+somewhere in 9th-16th place.&lt;/p&gt;
+&lt;h6 id=&quot;written-05-05-2014&quot;&gt;Written 05/05/2014&lt;/h6&gt;
+</description>
+    </item>
+    <item>
       <title>Battle Code 2011</title>
       <link>http://bovard.github.io/articles/battle_code_2011/</link>
-      <pubDate>Sat, 05 Feb 2011 15:00:00 -0700</pubDate>
+      <pubDate>Sat, 05 Feb 2011 15:00:00 -0500</pubDate>
       <guid isPermaLink="true">http://bovard.github.io/articles/battle_code_2011/</guid>
       <author></author>
       <description>&lt;p&gt;In which I abuse inheritance. Heavily.&lt;/p&gt;
@@ -71,7 +128,7 @@ are when the function you are calling could be in one of four files (or all four
     <item>
       <title>Planet Wars</title>
       <link>http://bovard.github.io/articles/google_ai_challenge_2010/</link>
-      <pubDate>Mon, 01 Nov 2010 15:00:00 -0600</pubDate>
+      <pubDate>Mon, 01 Nov 2010 15:00:00 -0400</pubDate>
       <guid isPermaLink="true">http://bovard.github.io/articles/google_ai_challenge_2010/</guid>
       <author></author>
       <description>&lt;p&gt;In which I discover python and kick butt.&lt;/p&gt;
