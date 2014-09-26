@@ -5,13 +5,13 @@
     <atom:link href="http://bovard.github.io/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://bovard.github.io</link>
     <description>Projects I've (nearly) finished.</description>
-    <pubDate>Fri, 01 Feb 2013 15:00:00 -0500</pubDate>
+    <pubDate>Fri, 01 Feb 2013 15:00:00 -0700</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
     <item>
       <title>BattleCode 2013</title>
       <link>http://bovard.github.io/articles/battle_code_2013/</link>
-      <pubDate>Fri, 01 Feb 2013 15:00:00 -0500</pubDate>
+      <pubDate>Fri, 01 Feb 2013 15:00:00 -0700</pubDate>
       <guid isPermaLink="true">http://bovard.github.io/articles/battle_code_2013/</guid>
       <author></author>
       <description>&lt;p&gt;In which we win great victories.&lt;/p&gt;
@@ -66,9 +66,9 @@ somewhere in 9th-16th place.&lt;/p&gt;
 </description>
     </item>
     <item>
-      <title>Battle Code 2011</title>
+      <title>BattleCode 2011</title>
       <link>http://bovard.github.io/articles/battle_code_2011/</link>
-      <pubDate>Sat, 05 Feb 2011 15:00:00 -0500</pubDate>
+      <pubDate>Sat, 05 Feb 2011 15:00:00 -0700</pubDate>
       <guid isPermaLink="true">http://bovard.github.io/articles/battle_code_2011/</guid>
       <author></author>
       <description>&lt;p&gt;In which I abuse inheritance. Heavily.&lt;/p&gt;
@@ -128,7 +128,7 @@ are when the function you are calling could be in one of four files (or all four
     <item>
       <title>Planet Wars</title>
       <link>http://bovard.github.io/articles/google_ai_challenge_2010/</link>
-      <pubDate>Mon, 01 Nov 2010 15:00:00 -0400</pubDate>
+      <pubDate>Mon, 01 Nov 2010 15:00:00 -0600</pubDate>
       <guid isPermaLink="true">http://bovard.github.io/articles/google_ai_challenge_2010/</guid>
       <author></author>
       <description>&lt;p&gt;In which I discover python and kick butt.&lt;/p&gt;
