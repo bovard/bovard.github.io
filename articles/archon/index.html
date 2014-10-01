@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Archon - Bovard's List
+    </title>
+    <link rel="alternate" href="http://bovard.github.io/feed.xml" type="application/rss+xml" title="Projects I've (nearly) finished.">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="/css/main.css">
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-49271503-1', 'bovard.github.io');
+      ga('send', 'pageview');
+      
+    </script>
+  </head>
+  <body class="article-detail">
+    <header class="header">
+      <div class="content-wrap">
+        <h1>Archon</h1>
+        <p class="author">Written by <span class="author"><a href="mailto:bovard.tiberi@gmail.com">Bovard Tiberi</a></span>
+        </p>
+      </div>
+    </header>
+    <div id="content">
+      <div class="content-wrap">
+        <article class="article">
+          <section class="content"><p>In which I create my first npm&nbsp;package</p>
+<p><span class="more"><span></p>
+<h4 id="description">Description</h4>
+<p><a href="http://battlecode.org/">Battle Code</a> is a yearly competition hosted by <span class="caps">MIT</span>.
+Competitors design an AI to control robots to lead them to battle on the virtual&nbsp;battlefield!</p>
+<p>After the first week of BattleCode most teams run into the same problem: over optimization.
+By this I mean teams will watch themselves lose a match because they did <code>x</code> then
+spend the next couple hours changing <code>x</code> to <code>y</code> only to learn that doing <code>x</code> actually
+helped their bot win 9/10&nbsp;times.</p>
+<p>How can teams test against this? The immediate thing that comes to mind is to create
+a few local test bots that have a variety of basic strategies implemented and test
+your new changes against that set of bots on all the&nbsp;maps.</p>
+<p>In <a href="/articles/archon/articles/battle_code_2013/">2013</a> we did this by hand and in 2014 I was determined
+to provide a much more elegant solution to this&nbsp;problem.</p>
+<p>Introducing: <a href="/articles/archon/npmjs.org/package/archon">archon</a>!</p>
+<p>Want to run all your bots against all other bots on all the&nbsp;maps?</p>
+<pre><code>archon -m -t
+</code></pre><p>Want to run your submission against all other submissions on all the&nbsp;maps?</p>
+<pre><code>archon -o teams/newSub -m -t
+</code></pre><p>What’s more all of those matches will be saved by default in the replays/ directory. You can queue
+up to watch all the games locally&nbsp;with</p>
+<pre><code>archon watch replays/
+</code></pre><h4 id="code">Code</h4>
+<p>Archon was my first substantial hobby project in pure node.js and I don’t think
+I fully took advantage of things like Promises which would have made my life
+a lot&nbsp;easier.</p>
+<p>Basically archon writes to the Battle Code engine’s config file called&nbsp;bc.conf:</p>
+<pre><code># Match server settings
+bc.server.throttle=yield
+bc.server.throttle-count=50
+
+# Game engine settings
+bc.engine.debug-methods=false
+bc.engine.silence-a=false
+bc.engine.silence-b=false
+bc.engine.gc=false
+bc.engine.gc-rounds=50
+bc.engine.upkeep=true
+bc.engine.breakpoints=false
+bc.engine.bytecodes-used=true
+
+# Client settings
+bc.client.opengl=false
+bc.client.use-models=true
+bc.client.renderprefs2d=
+bc.client.renderprefs3d=
+bc.client.sound-on=true
+bc.client.check-updates=false
+bc.client.viewer-delay=50
+
+# Headless settings - for &quot;ant file&quot;
+bc.game.maps=adobe
+bc.game.team-a=teleportingplayer
+bc.game.team-b=teleportingplayer
+bc.server.save-file=match.rms
+
+# Transcriber settings
+bc.server.transcribe-input=matches\\match.rms
+bc.server.transcribe-output=matches\\transcribed.txt
+</code></pre><p>After we set <code>bc.game.team-a</code>, <code>bc.game.team-b</code>, <code>bc.game.maps</code> and a few other
+settings we shell out <code>ant file</code> and listen to the&nbsp;results.</p>
+<p>I think at this point I’m getting all I can out of my currently sloppy implementation,
+if I were to have a bunch of features to add I’d probably redo a few things using&nbsp;promises.</p>
+<p>You can find the <a href="https://github.com/bovard/archon">code</a> on my github. Feel free
+to open an issue request or (better) a <span class="caps">PR</span> if you have something that you’d like to&nbsp;add.</p>
+<h4 id="results">Results</h4>
+<p>Archon has so far been a success. At the time of this writing it has 448 downloads
+in the past&nbsp;month!</p>
+<h6 id="written-09-26-2014">Written&nbsp;09/26/2014</h6>
+</section>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="content-wrap">
+        <div class="nav"><a href="/">« Full blog</a></div>
+        <section class="about"><p><a href="http://github.com/bovard">Github</a>
+<a href="http://twitter.com/bovardt">Twitter</a>
+<a href="http://google.com/+bovardtiberi">Google+</a></p>
+
+        </section>
+        <section class="copy">
+          <p>&copy; 2014 Bovard Tiberi &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
+          </p>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>

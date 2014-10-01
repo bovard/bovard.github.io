@@ -5,9 +5,87 @@
     <atom:link href="http://bovard.github.io/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://bovard.github.io</link>
     <description>Projects I've (nearly) finished.</description>
-    <pubDate>Fri, 01 Feb 2013 15:00:00 -0700</pubDate>
+    <pubDate>Tue, 14 Jan 2014 15:00:00 -0700</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>Archon</title>
+      <link>http://bovard.github.io/articles/archon/</link>
+      <pubDate>Tue, 14 Jan 2014 15:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://bovard.github.io/articles/archon/</guid>
+      <author></author>
+      <description>&lt;p&gt;In which I create my first npm package&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;span&gt;&lt;/p&gt;
+&lt;h4 id=&quot;description&quot;&gt;Description&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;http://battlecode.org/&quot;&gt;Battle Code&lt;/a&gt; is a yearly competition hosted by MIT.
+Competitors design an AI to control robots to lead them to battle on the virtual battlefield!&lt;/p&gt;
+&lt;p&gt;After the first week of BattleCode most teams run into the same problem: over optimization.
+By this I mean teams will watch themselves lose a match because they did &lt;code&gt;x&lt;/code&gt; then
+spend the next couple hours changing &lt;code&gt;x&lt;/code&gt; to &lt;code&gt;y&lt;/code&gt; only to learn that doing &lt;code&gt;x&lt;/code&gt; actually
+helped their bot win 9/10 times.&lt;/p&gt;
+&lt;p&gt;How can teams test against this? The immediate thing that comes to mind is to create
+a few local test bots that have a variety of basic strategies implemented and test
+your new changes against that set of bots on all the maps.&lt;/p&gt;
+&lt;p&gt;In &lt;a href=&quot;http://bovard.github.io/articles/archon/articles/battle_code_2013/&quot;&gt;2013&lt;/a&gt; we did this by hand and in 2014 I was determined
+to provide a much more elegant solution to this problem.&lt;/p&gt;
+&lt;p&gt;Introducing: &lt;a href=&quot;http://bovard.github.io/articles/archon/npmjs.org/package/archon&quot;&gt;archon&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Want to run all your bots against all other bots on all the maps?&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;archon -m -t
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Want to run your submission against all other submissions on all the maps?&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;archon -o teams/newSub -m -t
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;What’s more all of those matches will be saved by default in the replays/ directory. You can queue
+up to watch all the games locally with&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;archon watch replays/
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;code&quot;&gt;Code&lt;/h4&gt;
+&lt;p&gt;Archon was my first substantial hobby project in pure node.js and I don’t think
+I fully took advantage of things like Promises which would have made my life
+a lot easier.&lt;/p&gt;
+&lt;p&gt;Basically archon writes to the Battle Code engine’s config file called bc.conf:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Match server settings
+bc.server.throttle=yield
+bc.server.throttle-count=50
+
+# Game engine settings
+bc.engine.debug-methods=false
+bc.engine.silence-a=false
+bc.engine.silence-b=false
+bc.engine.gc=false
+bc.engine.gc-rounds=50
+bc.engine.upkeep=true
+bc.engine.breakpoints=false
+bc.engine.bytecodes-used=true
+
+# Client settings
+bc.client.opengl=false
+bc.client.use-models=true
+bc.client.renderprefs2d=
+bc.client.renderprefs3d=
+bc.client.sound-on=true
+bc.client.check-updates=false
+bc.client.viewer-delay=50
+
+# Headless settings - for &amp;quot;ant file&amp;quot;
+bc.game.maps=adobe
+bc.game.team-a=teleportingplayer
+bc.game.team-b=teleportingplayer
+bc.server.save-file=match.rms
+
+# Transcriber settings
+bc.server.transcribe-input=matches\\match.rms
+bc.server.transcribe-output=matches\\transcribed.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After we set &lt;code&gt;bc.game.team-a&lt;/code&gt;, &lt;code&gt;bc.game.team-b&lt;/code&gt;, &lt;code&gt;bc.game.maps&lt;/code&gt; and a few other
+settings we shell out &lt;code&gt;ant file&lt;/code&gt; and listen to the results.&lt;/p&gt;
+&lt;p&gt;I think at this point I’m getting all I can out of my currently sloppy implementation,
+if I were to have a bunch of features to add I’d probably redo a few things using
+promises.&lt;/p&gt;
+&lt;p&gt;You can find the &lt;a href=&quot;https://github.com/bovard/archon&quot;&gt;code&lt;/a&gt; on my github. Feel free
+to open an issue request or (better) a PR if you have something that you’d like to add.&lt;/p&gt;
+&lt;h4 id=&quot;results&quot;&gt;Results&lt;/h4&gt;
+&lt;p&gt;Archon has so far been a success. At the time of this writing it has 448 downloads
+in the past month!&lt;/p&gt;
+&lt;h6 id=&quot;written-09-26-2014&quot;&gt;Written 09/26/2014&lt;/h6&gt;
+</description>
+    </item>
     <item>
       <title>BattleCode 2013</title>
       <link>http://bovard.github.io/articles/battle_code_2013/</link>
