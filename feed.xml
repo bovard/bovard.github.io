@@ -5,13 +5,81 @@
     <atom:link href="http://bovard.github.io/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://bovard.github.io</link>
     <description>Projects I've (nearly) finished.</description>
-    <pubDate>Tue, 14 Jan 2014 15:00:00 -0700</pubDate>
+    <pubDate>Thu, 20 Mar 2014 15:00:00 -0700</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
     <item>
+      <title>RGB</title>
+      <link>http://bovard.github.io/articles/rgb/</link>
+      <pubDate>Thu, 20 Mar 2014 15:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://bovard.github.io/articles/rgb/</guid>
+      <author></author>
+      <description>&lt;p&gt;In which I finish my first game&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;span&gt;&lt;/p&gt;
+&lt;h4 id=&quot;description&quot;&gt;Description&lt;/h4&gt;
+&lt;p&gt;The Seven Day Roguelike challenge (&lt;a href=&quot;http://www.roguebasin.com/index.php?title=Seven_Day_Roguelike_Challenge&quot;&gt;7DRL&lt;/a&gt;) has been an annual competition since around 2005. The premise is simple: create a roguelike game in seven days! &lt;/p&gt;
+&lt;p&gt;From &lt;a href=&quot;https://en.wikipedia.org/wiki/Roguelike&quot;&gt;wikipedia&lt;/a&gt;: &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Roguelike is a subgenre of role-playing video games characterized by a dungeon crawl through procedurally generated game levels, turn-based gameplay, tile-based graphics, and permanent death of the player-character.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I, like many developers before me, have a long history of half-started games stretching back to middle school (our half-finished Pokemon clone on the TI-83+ was legendary) so the concept of actually finishing something was very appealing to me. I teamed up with a friend and we were off!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/rgb/rgb.png&quot; alt=&quot;RGB&quot;&gt;
+&lt;em&gt;Gotta love those rats&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Our idea was somewhat simple: create a simple dungeon crawler in which you could shift between three dimensions (red, green, blue - hence the name of the game). Initially we were thinking you could gain experience in a dimension for staying in it longer but in the end we made it so that each dimension had its own “special move”.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/rgb/green.png&quot; alt=&quot;red&quot;&gt;
+&lt;em&gt;Our helpful hint to switch dimensions&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;It’s not the most beautiful or robust (there is a still a bug when going to the next level that I haven’t figured out yet) game in the world, but we made it in seven days! From scratch. Take a &lt;a href=&quot;http://bovard.github.io/rgb/&quot;&gt;crack at it now&lt;/a&gt;! If you get to level 10, consider yourself an RGB champion.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/rgb/green2.png&quot; alt=&quot;green&quot;&gt;
+&lt;em&gt;You’re green!&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&quot;code&quot;&gt;Code&lt;/h4&gt;
+&lt;p&gt;RGB is played in your browser and uses a combination of html element and canvas to render. We wrote everything from scratch, including the game engine, which was quite the learning experience. You can view the code &lt;a href=&quot;https://github.com/bovard/rgb&quot;&gt;on github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The encapsulation wasn’t the best, &lt;a href=&quot;https://github.com/bovard/rgb/blob/master/src/Game.js&quot;&gt;Game.js&lt;/a&gt; touches rendering, creep ai, input, game logic, and display but I think it was pretty decent for seven days of work.&lt;/p&gt;
+&lt;p&gt;Perhaps some of the most gnarly code came when we implemented &lt;a href=&quot;https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm&quot;&gt;Dijkstra’s algorithm&lt;/a&gt; to help our creeps move a little more intelligently. You can see our very simplistic creep ai here:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;    takeCreepTurn: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;creepController, dijk, closeQuartersDijk&lt;/span&gt;) &lt;/span&gt;{
+        &lt;span class=&quot;comment&quot;&gt;// attack logic if we are in this dimension&lt;/span&gt;
+        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (creepController.isAdjacentToHero()) {
+            creepController.attackHero();
+        } &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(creepController.aggroHero()) {
+            &lt;span class=&quot;comment&quot;&gt;// Prioritize closeQuartersDijk if it has information&lt;/span&gt;
+            &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; next = closeQuartersDijk.getNextTile(creepController.getCharacter().getLocation());
+            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!next) {
+                next = dijk.getNextTile(creepController.getCharacter().getLocation());
+                &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (next)
+                    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&quot;Dikj is telling me to go to&quot;&lt;/span&gt;, next.toString(), &lt;span class=&quot;string&quot;&gt;'from'&lt;/span&gt;, creepController.getCharacter().getLocation().toString());
+            }
+            &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; {
+                &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (next)
+                    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&quot;closeQtrDikj is telling me to go to&quot;&lt;/span&gt;, next.toString(), &lt;span class=&quot;string&quot;&gt;'from'&lt;/span&gt;, creepController.getCharacter().getLocation().toString());
+            }
+            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (next) {
+                &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; dir = creepController.getCharacter().getLocation().directionTo(next);
+                &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (creepController.canMove(dir)) {
+                    creepController.move(dir);
+                } &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; {
+                    &lt;span class=&quot;comment&quot;&gt;// Dijkstra should never tell the creep to move where it can't BUT just in case it does&lt;/span&gt;
+                    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.doBestAdjacentMove(creepController);
+                }
+            } &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; {
+                &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.doBestAdjacentMove(creepController);
+            }
+        }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can see we borrowed heavily from &lt;a href=&quot;http://www.battlecode.org/&quot;&gt;battlecode’s api&lt;/a&gt; with &lt;code&gt;creepController&lt;/code&gt; and &lt;code&gt;canMove&lt;/code&gt;. Had I actually made a &lt;code&gt;creepPlayer&lt;/code&gt; things might have been much cleaner (and different creeps could have different ai / behaviors).&lt;/p&gt;
+&lt;h4 id=&quot;results&quot;&gt;Results&lt;/h4&gt;
+&lt;p&gt;RGB was a success (by 7DRL standards)! We were even featured as the &lt;a href=&quot;https://www.reddit.com/r/roguelikes/comments/216bwe/7drl_of_the_day_day_7_rgb/&quot;&gt;7DRL of the Day&lt;/a&gt; on reddit and was reviewed a couple times in the &lt;a href=&quot;http://7drl.roguetemple.com/Reviews&quot;&gt;7DRL Reviews&lt;/a&gt; (thanks to Jabberwock and Yeti for taking the time!) and given an overall score of 2.2 (out of 3)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“RGB is a browser roguelike with an interesting multi-dimensional mechanic. Red Green and Blue all operate as separate dimensions of the same dungeon. After the first three levels, where switching is mostly useless and/or instant death, the mechanic becomes very interesting! You can only attach enemies in your same dimension, but you can use other dimensions to escape. The level colors are a bit over-bearing but the dimension switching is cool!” - Yeti&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Over the years RGB has seen surprisingly more play than I expected. I’m not sure who was playing everyday in the summer of 2015, but whoever you are, I salute you! We’ve had players from 48 states (North Dakota and Alaska, looking at you) and on average people give up after just over a minute.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/rgb/analytics.png&quot; alt=&quot;Analytics&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Overall it felt great to actually finish a game, and I hope I’ll be participating in the 7DRL in the future!&lt;/p&gt;
+&lt;h6 id=&quot;written-05-24-2016&quot;&gt;Written 05/24/2016&lt;/h6&gt;
+</description>
+    </item>
+    <item>
       <title>Archon</title>
       <link>http://bovard.github.io/articles/archon/</link>
-      <pubDate>Tue, 14 Jan 2014 15:00:00 -0700</pubDate>
+      <pubDate>Tue, 14 Jan 2014 15:00:00 -0800</pubDate>
       <guid isPermaLink="true">http://bovard.github.io/articles/archon/</guid>
       <author></author>
       <description>&lt;p&gt;In which I create my first npm package&lt;/p&gt;
@@ -89,7 +157,7 @@ in the past month!&lt;/p&gt;
     <item>
       <title>BattleCode 2013</title>
       <link>http://bovard.github.io/articles/battle_code_2013/</link>
-      <pubDate>Fri, 01 Feb 2013 15:00:00 -0700</pubDate>
+      <pubDate>Fri, 01 Feb 2013 15:00:00 -0800</pubDate>
       <guid isPermaLink="true">http://bovard.github.io/articles/battle_code_2013/</guid>
       <author></author>
       <description>&lt;p&gt;In which we win great victories.&lt;/p&gt;
@@ -146,7 +214,7 @@ somewhere in 9th-16th place.&lt;/p&gt;
     <item>
       <title>BattleCode 2011</title>
       <link>http://bovard.github.io/articles/battle_code_2011/</link>
-      <pubDate>Sat, 05 Feb 2011 15:00:00 -0700</pubDate>
+      <pubDate>Sat, 05 Feb 2011 15:00:00 -0800</pubDate>
       <guid isPermaLink="true">http://bovard.github.io/articles/battle_code_2011/</guid>
       <author></author>
       <description>&lt;p&gt;In which I abuse inheritance. Heavily.&lt;/p&gt;
@@ -167,19 +235,19 @@ This dampened my spirits but I was ready to push forward!&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;img src=&quot;http://bovard.github.io/articles/battle_code_2011/flying2.png&quot; alt=&quot;Flying&quot;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;http://bovard.github.io/articles/battle_code_2011/light1.png&quot; alt=&quot;Light&quot;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;http://bovard.github.io/articles/battle_code_2011/medium2.png&quot; alt=&quot;Medium&quot;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;http://bovard.github.io/articles/battle_code_2011/turret2.png&quot; alt=&quot;Turret&quot;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;http://bovard.github.io/articles/battle_code_2011/armory2.png&quot; alt=&quot;Armory&quot;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;http://bovard.github.io/articles/battle_code_2011/building2.png&quot; alt=&quot;Building&quot;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;http://bovard.github.io/articles/battle_code_2011/dummy2.png&quot; alt=&quot;Dummy&quot;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;http://bovard.github.io/articles/battle_code_2011/factory2.png&quot; alt=&quot;Factory&quot;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;http://bovard.github.io/articles/battle_code_2011/recycler2.png&quot; alt=&quot;Recycler&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/flying2.png&quot; alt=&quot;Flying&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/light1.png&quot; alt=&quot;Light&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/medium2.png&quot; alt=&quot;Medium&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/turret2.png&quot; alt=&quot;Turret&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/armory2.png&quot; alt=&quot;Armory&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/building2.png&quot; alt=&quot;Building&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/dummy2.png&quot; alt=&quot;Dummy&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/factory2.png&quot; alt=&quot;Factory&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/recycler2.png&quot; alt=&quot;Recycler&quot;&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h6 id=&quot;a-selection-of-buildings-and-units-from-2012&quot;&gt;A selection of buildings and units from 2012&lt;/h6&gt;
+&lt;p&gt;######A selection of buildings and units from 2012&lt;/p&gt;
 &lt;p&gt;This year’s unique challenge was modular robots. To start with you chose a chassis
 (heavy, medium, light, or flying). By default each chassis could sense obstacles 1 square in
 each direction, receive messages, and carry a specified weight of components.
@@ -206,7 +274,7 @@ are when the function you are calling could be in one of four files (or all four
     <item>
       <title>Planet Wars</title>
       <link>http://bovard.github.io/articles/google_ai_challenge_2010/</link>
-      <pubDate>Mon, 01 Nov 2010 15:00:00 -0600</pubDate>
+      <pubDate>Mon, 01 Nov 2010 15:00:00 -0700</pubDate>
       <guid isPermaLink="true">http://bovard.github.io/articles/google_ai_challenge_2010/</guid>
       <author></author>
       <description>&lt;p&gt;In which I discover python and kick butt.&lt;/p&gt;
@@ -217,7 +285,7 @@ of AI programming competitions organized by the University of Waterloo Computer
 Science Club and sponsored by Google.
 This was the first time programming really clicked for me!
 Unfortunately they’ve stopped hosting competitions but I’ll always look back on it fondly.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://bovard.github.io/articles/google_ai_challenge_2010/PlanetWars.png&quot; alt=&quot;Plant Wars&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/google_ai_challenge_2010/PlanetWars.png&quot; alt=&quot;Plant Wars&quot;&gt;&lt;/p&gt;
 &lt;p&gt;In planet wars competitors must command fleets of ships around a small planetary system.
 Any planets you own create ships for you at a rate proportional to their size.
 Neutral (grey) planets don’t create ships until they’ve been captured by either side.
