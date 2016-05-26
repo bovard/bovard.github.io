@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Rogue AI Dungeon - Bovard's List
+    </title>
+    <link rel="alternate" href="http://bovard.github.io/feed.xml" type="application/rss+xml" title="Projects I've (nearly) finished.">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="/css/main.css">
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-49271503-1', 'bovard.github.io');
+      ga('send', 'pageview');
+      
+    </script>
+  </head>
+  <body class="article-detail">
+    <header class="header">
+      <div class="content-wrap">
+        <h1>Rogue AI Dungeon</h1>
+        <p class="author">Written by <span class="author"><a href="mailto:dt.bovard@gmail.com">Bovard Doerschuk-Tiberi</a></span>
+        </p>
+      </div>
+    </header>
+    <div id="content">
+      <div class="content-wrap">
+        <article class="article">
+          <section class="content"><p>In which I create an <span class="caps">AI</span>&nbsp;challenge</p>
+<p><span class="more"><span></p>
+<h4 id="description">Description</h4>
+<p>The Seven Day Roguelike challenge (<a href="http://www.roguebasin.com/index.php?title=Seven_Day_Roguelike_Challenge"><span class="caps">7DRL</span></a>) has been an annual competition since around 2005. The premise is simple: create a roguelike game in seven&nbsp;days! </p>
+<p>From <a href="https://en.wikipedia.org/wiki/Roguelike">wikipedia</a>: </p>
+<blockquote>
+<p>Roguelike is a subgenre of role-playing video games characterized by a dungeon crawl through procedurally generated game levels, turn-based gameplay, tile-based graphics, and permanent death of the&nbsp;player-character.</p>
+</blockquote>
+<p>I had participated in the <span class="caps">7DRL</span> 2014 challenge, creating <a href="/articles/rgb/"><span class="caps">RGB</span></a> with a friend. This year I was back with a team of four and we were ready to take on a bit&nbsp;more.</p>
+<p>I had been mulling around the idea for a while of making a single-player <a href="/articles/battle_code_2013/">battlecode</a>-ish challenge. A lot of complexity in battlecode is around messaging a coordination. I figured that if you just controlled one unit you could drop a lot of the complexity. It might also serve as a good starter for students interested in participating in&nbsp;battlecode.</p>
+<p><img src="/articles/rogue_ai_dungeon/splash.png" alt="RAID">
+<em><span class="caps">RAID</span>’s splash screen, courtesy of&nbsp;Raph</em></p>
+<p>We were able to complete (most) everything in a week and called it <span class="caps">RAID</span> - Rogue AI Dungeon. The purpose of the game is to program an AI to play the game for you. You’ll notice significantly more polish and depth than in RGB. If you’re interested in battlecode or learning javascript, <a href="http://bovard.github.io/raid/">give it a whirl</a>!</p>
+<p><img src="/articles/rogue_ai_dungeon/play.png" alt="Gameplay">
+<em>The dreaded orc&nbsp;level!</em></p>
+<h4 id="code">Code</h4>
+<p>The first few days of the project I spend duplicating (and adding to) the <a href="http://www.battlecode.org/">battlecode api</a>. We then spent a while on a tutorial which takes you up from the really dumb default&nbsp;player:</p>
+<pre><code class="lang-javascript"><span class="function"><span class="keyword">function</span> <span class="title">RaidPlayer</span>(<span class="params">playerController</span>) </span>{
+  <span class="keyword">this</span>.pc = playerController;
+}
+
+RaidPlayer.prototype = {
+  act: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    <span class="keyword">var</span> direction = Direction.randomDirection();
+    <span class="keyword">if</span>(<span class="keyword">this</span>.pc.canMove(direction)) {
+      <span class="keyword">this</span>.pc.move(direction);
+      <span class="keyword">return</span>;
+    }
+  }
+};
+</code></pre>
+<p>through most of the basic <span class="caps">API</span> functionality&nbsp;including:</p>
+<pre><code class="lang-javascript">senseDirectionToExit();
+canMove(direction);
+canMeleeAttack(location);
+meleeAttack(location);
+canMagicAttack(location);
+magicAttack(location);
+canRangedAttack(location);
+rangedAttack(location);
+</code></pre>
+<p>I replicated many of the battlecode <a href="https://github.com/bovard/raid/tree/master/lib/GameObjects">game objects</a> such as <a href="https://github.com/bovard/raid/blob/master/lib/GameObjects/Direction.js">Direction</a> and <a href="https://github.com/bovard/raid/blob/master/lib/GameObjects/MapLocation.js">MapLocation</a> and in general things should look very familiar to battlecode veterans. You can find all the code on <a href="https://github.com/bovard/raid">github</a>.</p>
+<p>Learning from the past mistakes of <span class="caps">RGB</span>, we really did make an effort to separate concerns and I think it turned out quite nicely. We have a sweet canvas renderer that even has animations and were able to program quite a few different behaviors for monsters. As you progress through the levels enemies getting faster, stronger and&nbsp;smarter. </p>
+<p>We also implemented somewhat robust analytics this year so I can tell you that no one has made it past level 11 (of a possible 40). We probably have a few balance issues to work out, but with over 10 AIs playing nearly 50 creep types that’s to be expected. Hopefully I’ll be able to spend some time balancing on a later&nbsp;date.</p>
+<h4 id="results">Results</h4>
+<p><span class="caps">RAID</span> was a success in 7DRL, earning a <a href="http://7drl.roguetemple.com/Reviews">1.9</a> (out of 3) from our reviewers, Winter Wolf and Tiger (big thank you!). Tiger&nbsp;writes:</p>
+<blockquote>
+<p>“This is a game for a programmers only. Luckily, I am a programmer and many of the roguelike players too. In the game, you must write a JavaScript function that controls player so he can reach from one corner of screen to opposite. You can use three different attacks (melee, ranged and magical) to kill several types of monsters,  heal yourself, check a tiles and units around you and move in 8 directions. Early levels are pretty dull, so even A<em> would be a huge overkill here, simple moving to an exit and snippets copied from tutorial about “if you can hit with magic, do it” are enough to pass first 5 levels. Well, later on levels gets harder and perhaps better tactical <span class="caps">AI</span> or at least magic instead of melee could have helped against jackals pack right at start. But testing it would be a pain because you must pass all the levels from first after each failure and it takes about 15 minutes at maximum speed. And if we speak about pathfinding, i don’t think i’m in a mood to recreate an a</em>\wave algorithm in javascript for now. But i’ll try to do it&nbsp;later.”</p>
+</blockquote>
+<p>Thanks to a little bit of shameless self-promotion on reddit, we had over 3000 sessions in the first week after release! I had certainly never dreamed of such a reception and I was blown away. Some people even contacted us with suggestions and made pull requests to fix some of our bugs! If you want to chat about the game, you can come find us in our <a href="https://gitter.im/bovard/raid">gitter channel</a>.</p>
+<p>Overall I couldn’t have been happier with the result. Hope you&nbsp;enjoy!</p>
+<h6 id="written-05-24-2016">Written&nbsp;05/24/2016</h6>
+</section>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="content-wrap">
+        <div class="nav"><a href="/">« Full blog</a></div>
+        <section class="about"><p><a href="http://github.com/bovard">Github</a>
+<a href="http://twitter.com/bovardt">Twitter</a>
+<a href="http://google.com/+bovardtiberi">Google+</a></p>
+
+        </section>
+        <section class="copy">
+          <p>&copy; 2016 Bovard Tiberi &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
+          </p>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>
