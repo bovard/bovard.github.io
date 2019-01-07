@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bovard's List</title>
-    <atom:link href="http://bovard.github.io/feed.xml" rel="self" type="application/rss+xml"></atom:link>
-    <link>http://bovard.github.io</link>
-    <description>Projects I've (nearly) finished.</description>
-    <pubDate>Mon, 21 Mar 2016 15:00:00 -0700</pubDate>
+    <atom:link href="https://bovard.github.io/feed.xml" rel="self" type="application/rss+xml"></atom:link>
+    <link>https://bovard.github.io</link>
+    <description>Projects I've (nearly) finished</description>
+    <pubDate>Mon, 21 Mar 2016 15:00:00 +0000</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
     <item>
       <title>Rogue AI Dungeon</title>
-      <link>http://bovard.github.io/articles/rogue_ai_dungeon/</link>
-      <pubDate>Mon, 21 Mar 2016 15:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://bovard.github.io/articles/rogue_ai_dungeon/</guid>
-      <author></author>
+      <link>https://bovard.github.io/articles/rogue_ai_dungeon/</link>
+      <pubDate>Mon, 21 Mar 2016 15:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://bovard.github.io/articles/rogue_ai_dungeon/</guid>
+      <author>Bovard Doerschuk-Tiberi</author>
       <description>&lt;p&gt;In which I create an AI challenge&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;span&gt;&lt;/p&gt;
 &lt;h4 id=&quot;description&quot;&gt;Description&lt;/h4&gt;
@@ -22,8 +22,8 @@
 &lt;blockquote&gt;
 &lt;p&gt;Roguelike is a subgenre of role-playing video games characterized by a dungeon crawl through procedurally generated game levels, turn-based gameplay, tile-based graphics, and permanent death of the player-character.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;I had participated in the 7DRL 2014 challenge, creating &lt;a href=&quot;http://bovard.github.io/articles/rgb/&quot;&gt;RGB&lt;/a&gt; with a friend. This year I was back with a team of four and we were ready to take on a bit more.&lt;/p&gt;
-&lt;p&gt;I had been mulling around the idea for a while of making a single-player &lt;a href=&quot;http://bovard.github.io/articles/battle_code_2013/&quot;&gt;battlecode&lt;/a&gt;-ish challenge. A lot of complexity in battlecode is around messaging a coordination. I figured that if you just controlled one unit you could drop a lot of the complexity. It might also serve as a good starter for students interested in participating in battlecode.&lt;/p&gt;
+&lt;p&gt;I had participated in the 7DRL 2014 challenge, creating &lt;a href=&quot;https://bovard.github.io/articles/rgb/&quot;&gt;RGB&lt;/a&gt; with a friend. This year I was back with a team of four and we were ready to take on a bit more.&lt;/p&gt;
+&lt;p&gt;I had been mulling around the idea for a while of making a single-player &lt;a href=&quot;https://bovard.github.io/articles/battle_code_2013/&quot;&gt;battlecode&lt;/a&gt;-ish challenge. A lot of complexity in battlecode is around messaging a coordination. I figured that if you just controlled one unit you could drop a lot of the complexity. It might also serve as a good starter for students interested in participating in battlecode.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/articles/rogue_ai_dungeon/splash.png&quot; alt=&quot;RAID&quot;&gt;
 &lt;em&gt;RAID’s splash screen, courtesy of Raph&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;We were able to complete (most) everything in a week and called it RAID - Rogue AI Dungeon. The purpose of the game is to program an AI to play the game for you. You’ll notice significantly more polish and depth than in RGB. If you’re interested in battlecode or learning javascript, &lt;a href=&quot;http://bovard.github.io/raid/&quot;&gt;give it a whirl&lt;/a&gt;!&lt;/p&gt;
@@ -31,37 +31,35 @@
 &lt;em&gt;The dreaded orc level!&lt;/em&gt;&lt;/p&gt;
 &lt;h4 id=&quot;code&quot;&gt;Code&lt;/h4&gt;
 &lt;p&gt;The first few days of the project I spend duplicating (and adding to) the &lt;a href=&quot;http://www.battlecode.org/&quot;&gt;battlecode api&lt;/a&gt;. We then spent a while on a tutorial which takes you up from the really dumb default player:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;RaidPlayer&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;playerController&lt;/span&gt;) &lt;/span&gt;{
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;RaidPlayer&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;playerController&lt;/span&gt;) &lt;/span&gt;{
   &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.pc = playerController;
 }
 
 RaidPlayer.prototype = {
-  act: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;{
+  &lt;span class=&quot;attr&quot;&gt;act&lt;/span&gt;: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;{
     &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; direction = Direction.randomDirection();
     &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.pc.canMove(direction)) {
       &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.pc.move(direction);
       &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;;
     }
   }
-};
-&lt;/code&gt;&lt;/pre&gt;
+};&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;through most of the basic API functionality including:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;senseDirectionToExit();
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;senseDirectionToExit();
 canMove(direction);
 canMeleeAttack(location);
 meleeAttack(location);
 canMagicAttack(location);
 magicAttack(location);
 canRangedAttack(location);
-rangedAttack(location);
-&lt;/code&gt;&lt;/pre&gt;
+rangedAttack(location);&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;I replicated many of the battlecode &lt;a href=&quot;https://github.com/bovard/raid/tree/master/lib/GameObjects&quot;&gt;game objects&lt;/a&gt; such as &lt;a href=&quot;https://github.com/bovard/raid/blob/master/lib/GameObjects/Direction.js&quot;&gt;Direction&lt;/a&gt; and &lt;a href=&quot;https://github.com/bovard/raid/blob/master/lib/GameObjects/MapLocation.js&quot;&gt;MapLocation&lt;/a&gt; and in general things should look very familiar to battlecode veterans. You can find all the code on &lt;a href=&quot;https://github.com/bovard/raid&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Learning from the past mistakes of RGB, we really did make an effort to separate concerns and I think it turned out quite nicely. We have a sweet canvas renderer that even has animations and were able to program quite a few different behaviors for monsters. As you progress through the levels enemies getting faster, stronger and smarter. &lt;/p&gt;
 &lt;p&gt;We also implemented somewhat robust analytics this year so I can tell you that no one has made it past level 11 (of a possible 40). We probably have a few balance issues to work out, but with over 10 AIs playing nearly 50 creep types that’s to be expected. Hopefully I’ll be able to spend some time balancing on a later date.&lt;/p&gt;
 &lt;h4 id=&quot;results&quot;&gt;Results&lt;/h4&gt;
 &lt;p&gt;RAID was a success in 7DRL, earning a &lt;a href=&quot;http://7drl.roguetemple.com/Reviews&quot;&gt;1.9&lt;/a&gt; (out of 3) from our reviewers, Winter Wolf and Tiger (big thank you!). Tiger writes:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;“This is a game for a programmers only. Luckily, I am a programmer and many of the roguelike players too. In the game, you must write a JavaScript function that controls player so he can reach from one corner of screen to opposite. You can use three different attacks (melee, ranged and magical) to kill several types of monsters,  heal yourself, check a tiles and units around you and move in 8 directions. Early levels are pretty dull, so even A&lt;em&gt; would be a huge overkill here, simple moving to an exit and snippets copied from tutorial about “if you can hit with magic, do it” are enough to pass first 5 levels. Well, later on levels gets harder and perhaps better tactical AI or at least magic instead of melee could have helped against jackals pack right at start. But testing it would be a pain because you must pass all the levels from first after each failure and it takes about 15 minutes at maximum speed. And if we speak about pathfinding, i don’t think i’m in a mood to recreate an a&lt;/em&gt;\wave algorithm in javascript for now. But i’ll try to do it later.”&lt;/p&gt;
+&lt;p&gt;“This is a game for a programmers only. Luckily, I am a programmer and many of the roguelike players too. In the game, you must write a JavaScript function that controls player so he can reach from one corner of screen to opposite. You can use three different attacks (melee, ranged and magical) to kill several types of monsters,  heal yourself, check a tiles and units around you and move in 8 directions. Early levels are pretty dull, so even A* would be a huge overkill here, simple moving to an exit and snippets copied from tutorial about “if you can hit with magic, do it” are enough to pass first 5 levels. Well, later on levels gets harder and perhaps better tactical AI or at least magic instead of melee could have helped against jackals pack right at start. But testing it would be a pain because you must pass all the levels from first after each failure and it takes about 15 minutes at maximum speed. And if we speak about pathfinding, i don’t think i’m in a mood to recreate an a*\wave algorithm in javascript for now. But i’ll try to do it later.”&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Thanks to a little bit of shameless self-promotion on reddit, we had over 3000 sessions in the first week after release! I had certainly never dreamed of such a reception and I was blown away. Some people even contacted us with suggestions and made pull requests to fix some of our bugs! If you want to chat about the game, you can come find us in our &lt;a href=&quot;https://gitter.im/bovard/raid&quot;&gt;gitter channel&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Overall I couldn’t have been happier with the result. Hope you enjoy!&lt;/p&gt;
@@ -70,10 +68,10 @@ rangedAttack(location);
     </item>
     <item>
       <title>RGB</title>
-      <link>http://bovard.github.io/articles/rgb/</link>
-      <pubDate>Thu, 20 Mar 2014 15:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://bovard.github.io/articles/rgb/</guid>
-      <author></author>
+      <link>https://bovard.github.io/articles/rgb/</link>
+      <pubDate>Thu, 20 Mar 2014 15:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://bovard.github.io/articles/rgb/</guid>
+      <author>Bovard Doerschuk-Tiberi</author>
       <description>&lt;p&gt;In which I finish my first game&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;span&gt;&lt;/p&gt;
 &lt;h4 id=&quot;description&quot;&gt;Description&lt;/h4&gt;
@@ -95,7 +93,7 @@ rangedAttack(location);
 &lt;p&gt;RGB is played in your browser and uses a combination of html element and canvas to render. We wrote everything from scratch, including the game engine, which was quite the learning experience. You can view the code &lt;a href=&quot;https://github.com/bovard/rgb&quot;&gt;on github&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The encapsulation wasn’t the best, &lt;a href=&quot;https://github.com/bovard/rgb/blob/master/src/Game.js&quot;&gt;Game.js&lt;/a&gt; touches rendering, creep ai, input, game logic, and display but I think it was pretty decent for seven days of work.&lt;/p&gt;
 &lt;p&gt;Perhaps some of the most gnarly code came when we implemented &lt;a href=&quot;https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm&quot;&gt;Dijkstra’s algorithm&lt;/a&gt; to help our creeps move a little more intelligently. You can see our very simplistic creep ai here:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;    takeCreepTurn: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;creepController, dijk, closeQuartersDijk&lt;/span&gt;) &lt;/span&gt;{
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;    takeCreepTurn: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;creepController, dijk, closeQuartersDijk&lt;/span&gt;) &lt;/span&gt;{
         &lt;span class=&quot;comment&quot;&gt;// attack logic if we are in this dimension&lt;/span&gt;
         &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (creepController.isAdjacentToHero()) {
             creepController.attackHero();
@@ -122,8 +120,7 @@ rangedAttack(location);
             } &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; {
                 &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.doBestAdjacentMove(creepController);
             }
-        }
-&lt;/code&gt;&lt;/pre&gt;
+        }&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You can see we borrowed heavily from &lt;a href=&quot;http://www.battlecode.org/&quot;&gt;battlecode’s api&lt;/a&gt; with &lt;code&gt;creepController&lt;/code&gt; and &lt;code&gt;canMove&lt;/code&gt;. Had I actually made a &lt;code&gt;creepPlayer&lt;/code&gt; things might have been much cleaner (and different creeps could have different ai / behaviors).&lt;/p&gt;
 &lt;h4 id=&quot;results&quot;&gt;Results&lt;/h4&gt;
 &lt;p&gt;RGB was a success (by 7DRL standards)! We were even featured as the &lt;a href=&quot;https://www.reddit.com/r/roguelikes/comments/216bwe/7drl_of_the_day_day_7_rgb/&quot;&gt;7DRL of the Day&lt;/a&gt; on reddit and was reviewed a couple times in the &lt;a href=&quot;http://7drl.roguetemple.com/Reviews&quot;&gt;7DRL Reviews&lt;/a&gt; (thanks to Jabberwock and Yeti for taking the time!) and given an overall score of 2.2 (out of 3)&lt;/p&gt;
@@ -137,10 +134,10 @@ rangedAttack(location);
     </item>
     <item>
       <title>Archon</title>
-      <link>http://bovard.github.io/articles/archon/</link>
-      <pubDate>Tue, 14 Jan 2014 15:00:00 -0800</pubDate>
-      <guid isPermaLink="true">http://bovard.github.io/articles/archon/</guid>
-      <author></author>
+      <link>https://bovard.github.io/articles/archon/</link>
+      <pubDate>Tue, 14 Jan 2014 15:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://bovard.github.io/articles/archon/</guid>
+      <author>Bovard Doerschuk-Tiberi</author>
       <description>&lt;p&gt;In which I create my first npm package&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;span&gt;&lt;/p&gt;
 &lt;h4 id=&quot;description&quot;&gt;Description&lt;/h4&gt;
@@ -153,17 +150,14 @@ helped their bot win 9/10 times.&lt;/p&gt;
 &lt;p&gt;How can teams test against this? The immediate thing that comes to mind is to create
 a few local test bots that have a variety of basic strategies implemented and test
 your new changes against that set of bots on all the maps.&lt;/p&gt;
-&lt;p&gt;In &lt;a href=&quot;http://bovard.github.io/articles/archon/articles/battle_code_2013/&quot;&gt;2013&lt;/a&gt; we did this by hand and in 2014 I was determined
+&lt;p&gt;In &lt;a href=&quot;https://bovard.github.io/articles/archon/articles/battle_code_2013/&quot;&gt;2013&lt;/a&gt; we did this by hand and in 2014 I was determined
 to provide a much more elegant solution to this problem.&lt;/p&gt;
-&lt;p&gt;Introducing: &lt;a href=&quot;http://bovard.github.io/articles/archon/npmjs.org/package/archon&quot;&gt;archon&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Introducing: &lt;a href=&quot;https://bovard.github.io/articles/archon/npmjs.org/package/archon&quot;&gt;archon&lt;/a&gt;!&lt;/p&gt;
 &lt;p&gt;Want to run all your bots against all other bots on all the maps?&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;archon -m -t
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Want to run your submission against all other submissions on all the maps?&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;archon -o teams/newSub -m -t
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;What’s more all of those matches will be saved by default in the replays/ directory. You can queue
+&lt;pre&gt;&lt;code&gt;archon -m -t&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Want to run your submission against all other submissions on all the maps?&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;archon -o teams/newSub -m -t&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;What’s more all of those matches will be saved by default in the replays/ directory. You can queue
 up to watch all the games locally with&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;archon watch replays/
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;code&quot;&gt;Code&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;archon watch replays/&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;code&quot;&gt;Code&lt;/h4&gt;
 &lt;p&gt;Archon was my first substantial hobby project in pure node.js and I don’t think
 I fully took advantage of things like Promises which would have made my life
 a lot easier.&lt;/p&gt;
@@ -199,8 +193,7 @@ bc.server.save-file=match.rms
 
 # Transcriber settings
 bc.server.transcribe-input=matches\\match.rms
-bc.server.transcribe-output=matches\\transcribed.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After we set &lt;code&gt;bc.game.team-a&lt;/code&gt;, &lt;code&gt;bc.game.team-b&lt;/code&gt;, &lt;code&gt;bc.game.maps&lt;/code&gt; and a few other
+bc.server.transcribe-output=matches\\transcribed.txt&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After we set &lt;code&gt;bc.game.team-a&lt;/code&gt;, &lt;code&gt;bc.game.team-b&lt;/code&gt;, &lt;code&gt;bc.game.maps&lt;/code&gt; and a few other
 settings we shell out &lt;code&gt;ant file&lt;/code&gt; and listen to the results.&lt;/p&gt;
 &lt;p&gt;I think at this point I’m getting all I can out of my currently sloppy implementation,
 if I were to have a bunch of features to add I’d probably redo a few things using
@@ -215,10 +208,10 @@ in the past month!&lt;/p&gt;
     </item>
     <item>
       <title>BattleCode 2013</title>
-      <link>http://bovard.github.io/articles/battle_code_2013/</link>
-      <pubDate>Fri, 01 Feb 2013 15:00:00 -0800</pubDate>
-      <guid isPermaLink="true">http://bovard.github.io/articles/battle_code_2013/</guid>
-      <author></author>
+      <link>https://bovard.github.io/articles/battle_code_2013/</link>
+      <pubDate>Fri, 01 Feb 2013 15:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://bovard.github.io/articles/battle_code_2013/</guid>
+      <author>Bovard Doerschuk-Tiberi</author>
       <description>&lt;p&gt;In which we win great victories.&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;span&gt;&lt;/p&gt;
 &lt;h4 id=&quot;description&quot;&gt;Description&lt;/h4&gt;
@@ -253,8 +246,7 @@ an action. Additionally there were selector nodes, which would select a child ac
 to run based on the environment. The loop ran something like this:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;observe_environment()
 choose_action_from_tree()
-execute_action()
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This allowed up to build up several different trees to rapidly build out different
+execute_action()&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This allowed up to build up several different trees to rapidly build out different
 soldier roles that could be easily composed and switched. Here’s a list of the more interesting
 roles:&lt;/p&gt;
 &lt;ul&gt;
@@ -272,10 +264,10 @@ somewhere in 9th-16th place.&lt;/p&gt;
     </item>
     <item>
       <title>BattleCode 2011</title>
-      <link>http://bovard.github.io/articles/battle_code_2011/</link>
-      <pubDate>Sat, 05 Feb 2011 15:00:00 -0800</pubDate>
-      <guid isPermaLink="true">http://bovard.github.io/articles/battle_code_2011/</guid>
-      <author></author>
+      <link>https://bovard.github.io/articles/battle_code_2011/</link>
+      <pubDate>Sat, 05 Feb 2011 15:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://bovard.github.io/articles/battle_code_2011/</guid>
+      <author>Bovard Doerschuk-Tiberi</author>
       <description>&lt;p&gt;In which I abuse inheritance. Heavily.&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;span&gt;&lt;/p&gt;
 &lt;h4 id=&quot;description&quot;&gt;Description&lt;/h4&gt;
@@ -285,27 +277,9 @@ Each robot is running on a separate thread so communication between bots is limi
 &lt;p&gt;Fresh from my win in the Google AI Challenge, I recruited a team from there to head over
 and do Battle Code. Unfortunately none of them wrote a line of code.
 This dampened my spirits but I was ready to push forward!&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/flying2.png&quot; alt=&quot;Flying&quot;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/light1.png&quot; alt=&quot;Light&quot;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/medium2.png&quot; alt=&quot;Medium&quot;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/turret2.png&quot; alt=&quot;Turret&quot;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/armory2.png&quot; alt=&quot;Armory&quot;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/building2.png&quot; alt=&quot;Building&quot;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/dummy2.png&quot; alt=&quot;Dummy&quot;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/factory2.png&quot; alt=&quot;Factory&quot;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;/articles/battle_code_2011/recycler2.png&quot; alt=&quot;Recycler&quot;&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;|  |  |
+| —– | —– | —–
+| &lt;img src=&quot;/articles/battle_code_2011/flying2.png&quot; alt=&quot;Flying&quot;&gt;  | &lt;img src=&quot;/articles/battle_code_2011/light1.png&quot; alt=&quot;Light&quot;&gt; | &lt;img src=&quot;/articles/battle_code_2011/medium2.png&quot; alt=&quot;Medium&quot;&gt; | &lt;img src=&quot;/articles/battle_code_2011/turret2.png&quot; alt=&quot;Turret&quot;&gt; | &lt;img src=&quot;/articles/battle_code_2011/armory2.png&quot; alt=&quot;Armory&quot;&gt; |  &lt;img src=&quot;/articles/battle_code_2011/building2.png&quot; alt=&quot;Building&quot;&gt; |  &lt;img src=&quot;/articles/battle_code_2011/dummy2.png&quot; alt=&quot;Dummy&quot;&gt; | &lt;img src=&quot;/articles/battle_code_2011/factory2.png&quot; alt=&quot;Factory&quot;&gt; | &lt;img src=&quot;/articles/battle_code_2011/recycler2.png&quot; alt=&quot;Recycler&quot;&gt;&lt;/p&gt;
 &lt;p&gt;######A selection of buildings and units from 2012&lt;/p&gt;
 &lt;p&gt;This year’s unique challenge was modular robots. To start with you chose a chassis
 (heavy, medium, light, or flying). By default each chassis could sense obstacles 1 square in
@@ -320,8 +294,7 @@ thing that came to mind: misuse the #*%&amp;amp; out of inheritance.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;RobotSystem
   ^-SensorRobotSystem
     ^-BuilderSensorRobotSystem
-      ^-WeaponBuilderSensorRobotSystem
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Not only does a WeaponBuilderSensorRobotSystem never build anything but also sometimes they don’t have a sensor!
+      ^-WeaponBuilderSensorRobotSystem&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Not only does a WeaponBuilderSensorRobotSystem never build anything but also sometimes they don’t have a sensor!
 As the competition entered its final week I learned just how painful major refactors
 are when the function you are calling could be in one of four files (or all four)! You can check out the code on my &lt;a href=&quot;https://github.com/bovard/robo-rumble&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Walking away from this I learned first-hand the perils of ignoring the &lt;code&gt;composition over inheritance&lt;/code&gt; mantra.&lt;/p&gt;
@@ -332,10 +305,10 @@ are when the function you are calling could be in one of four files (or all four
     </item>
     <item>
       <title>Planet Wars</title>
-      <link>http://bovard.github.io/articles/google_ai_challenge_2010/</link>
-      <pubDate>Mon, 01 Nov 2010 15:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://bovard.github.io/articles/google_ai_challenge_2010/</guid>
-      <author></author>
+      <link>https://bovard.github.io/articles/google_ai_challenge_2010/</link>
+      <pubDate>Mon, 01 Nov 2010 15:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://bovard.github.io/articles/google_ai_challenge_2010/</guid>
+      <author>Bovard Doerschuk-Tiberi</author>
       <description>&lt;p&gt;In which I discover python and kick butt.&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;span&gt;&lt;/p&gt;
 &lt;h4 id=&quot;description&quot;&gt;Description&lt;/h4&gt;

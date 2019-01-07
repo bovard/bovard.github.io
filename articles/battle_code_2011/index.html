@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width">
     <title>BattleCode 2011 - Bovard's List
     </title>
-    <link rel="alternate" href="http://bovard.github.io/feed.xml" type="application/rss+xml" title="Projects I've (nearly) finished.">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="alternate" href="https://bovard.github.io/feed.xml" type="application/rss+xml" title="Projects I've (nearly) finished">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300|Roboto+Mono:300,400">
     <link rel="stylesheet" href="/css/main.css">
     <script type="text/javascript">
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -16,7 +16,6 @@
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-49271503-1', 'bovard.github.io');
       ga('send', 'pageview');
-      
     </script>
   </head>
   <body class="article-detail">
@@ -30,73 +29,53 @@
     <div id="content">
       <div class="content-wrap">
         <article class="article">
-          <section class="content"><p>In which I abuse inheritance.&nbsp;Heavily.</p>
+          <section class="content"><p>In which I abuse inheritance.<span class="widont">&nbsp;</span>Heavily.</p>
 <p><span class="more"><span></p>
 <h4 id="description">Description</h4>
 <p><a href="http://battlecode.org/">Battle Code</a> is a yearly competition hosted by <span class="caps">MIT</span>.
-Competitors design an AI to control robots to lead them to battle on the virtual battlefield!
-Each robot is running on a separate thread so communication between bots is&nbsp;limited.</p>
+Competitors design an <span class="caps">AI</span> to control robots to lead them to battle on the virtual battlefield!
+Each robot is running on a separate thread so communication between bots is<span class="widont">&nbsp;</span>limited.</p>
 <p>Fresh from my win in the Google <span class="caps">AI</span> Challenge, I recruited a team from there to head over
 and do Battle Code. Unfortunately none of them wrote a line of code.
-This dampened my spirits but I was ready to push&nbsp;forward!</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="/articles/battle_code_2011/flying2.png" alt="Flying"></td>
-<td><img src="/articles/battle_code_2011/light1.png" alt="Light"></td>
-<td><img src="/articles/battle_code_2011/medium2.png" alt="Medium"></td>
-<td><img src="/articles/battle_code_2011/turret2.png" alt="Turret"></td>
-<td><img src="/articles/battle_code_2011/armory2.png" alt="Armory"></td>
-<td><img src="/articles/battle_code_2011/building2.png" alt="Building"></td>
-<td><img src="/articles/battle_code_2011/dummy2.png" alt="Dummy"></td>
-<td><img src="/articles/battle_code_2011/factory2.png" alt="Factory"></td>
-<td><img src="/articles/battle_code_2011/recycler2.png" alt="Recycler"></td>
-</tr>
-</tbody>
-</table>
-<p>######A selection of buildings and units from&nbsp;2012</p>
+This dampened my spirits but I was ready to push<span class="widont">&nbsp;</span>forward!</p>
+<p>|  |  |
+| —– | —– | —–
+| <img src="/articles/battle_code_2011/flying2.png" alt="Flying">  | <img src="/articles/battle_code_2011/light1.png" alt="Light"> | <img src="/articles/battle_code_2011/medium2.png" alt="Medium"> | <img src="/articles/battle_code_2011/turret2.png" alt="Turret"> | <img src="/articles/battle_code_2011/armory2.png" alt="Armory"> |  <img src="/articles/battle_code_2011/building2.png" alt="Building"> |  <img src="/articles/battle_code_2011/dummy2.png" alt="Dummy"> | <img src="/articles/battle_code_2011/factory2.png" alt="Factory"> | <img src="/articles/battle_code_2011/recycler2.png" alt="Recycler"></p>
+<p>######A selection of buildings and units from<span class="widont">&nbsp;</span>2012</p>
 <p>This year’s unique challenge was modular robots. To start with you chose a chassis
 (heavy, medium, light, or flying). By default each chassis could sense obstacles 1 square in
 each direction, receive messages, and carry a specified weight of components.
-These components were broken into 4 categories: builders, sensors, weapons and&nbsp;communication.</p>
+These components were broken into 4 categories: builders, sensors, weapons and<span class="widont">&nbsp;</span>communication.</p>
 <p>You can read more about the details of the contest on the winning team’s <a href="http://blog.stevearc.com/2011/12/17/battlecode-postmortem.html">post-mortem blog post</a>.
-But lets just say the winning strategy involved heavy chassis with a teleport component, a hammer and a mountain of&nbsp;armor.</p>
+But lets just say the winning strategy involved heavy chassis with a teleport component, a hammer and a mountain of<span class="widont">&nbsp;</span>armor.</p>
 <h4 id="code">Code</h4>
 <p>Being a fresh graduate of a Java-based undergraduate program I did the first
-thing that came to mind: misuse the #*%&amp; out of&nbsp;inheritance.</p>
-<p>What happened next was a Daily <span class="caps">WTF</span>-worthy inheritance&nbsp;tree:</p>
+thing that came to mind: misuse the #*%&amp; out of<span class="widont">&nbsp;</span>inheritance.</p>
+<p>What happened next was a Daily <span class="caps">WTF</span>-worthy inheritance<span class="widont">&nbsp;</span>tree:</p>
 <pre><code>RobotSystem
   ^-SensorRobotSystem
     ^-BuilderSensorRobotSystem
-      ^-WeaponBuilderSensorRobotSystem
-</code></pre><p>Not only does a WeaponBuilderSensorRobotSystem never build anything but also sometimes they don’t have a sensor!
+      ^-WeaponBuilderSensorRobotSystem</code></pre><p>Not only does a WeaponBuilderSensorRobotSystem never build anything but also sometimes they don’t have a sensor!
 As the competition entered its final week I learned just how painful major refactors
 are when the function you are calling could be in one of four files (or all four)! You can check out the code on my <a href="https://github.com/bovard/robo-rumble">github</a>.</p>
 <p>Walking away from this I learned first-hand the perils of ignoring the <code>composition over inheritance</code> mantra.</p>
 <h4 id="results">Results</h4>
-<p>I placed about the middle of the pack overall but I was the 2<span class="ord">nd</span> place non-<span class="caps">MIT</span>&nbsp;team.</p>
-<h6 id="written-03-22-2014">Written&nbsp;03/22/2014</h6>
+<p>I placed about the middle of the pack overall but I was the 2<span class="ord">nd</span> place non-<span class="caps">MIT</span><span class="widont">&nbsp;</span>team.</p>
+<h6 id="written-03-22-2014">Written 03/22/2014</h6>
 </section>
         </article>
       </div>
     </div>
     <footer>
       <div class="content-wrap">
-        <div class="nav"><a href="/">« Full blog</a></div>
+        <div class="nav"><a href="/">&laquo; Full blog</a></div>
         <section class="about"><p><a href="http://github.com/bovard">Github</a>
 <a href="http://twitter.com/bovardt">Twitter</a>
 <a href="http://google.com/+bovardtiberi">Google+</a></p>
 
         </section>
         <section class="copy">
-          <p>&copy; 2016 Bovard Tiberi &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
-          </p>
+          <p>&copy; 2019 Bovard Doerschuk-Tiberi &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a></p>
         </section>
       </div>
     </footer>
