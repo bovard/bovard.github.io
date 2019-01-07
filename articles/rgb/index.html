@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width">
     <title>RGB - Bovard's List
     </title>
-    <link rel="alternate" href="http://bovard.github.io/feed.xml" type="application/rss+xml" title="Projects I've (nearly) finished.">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="alternate" href="https://bovard.github.io/feed.xml" type="application/rss+xml" title="Projects I've (nearly) finished">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
     <link rel="stylesheet" href="/css/main.css">
     <script type="text/javascript">
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -16,7 +16,6 @@
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-49271503-1', 'bovard.github.io');
       ga('send', 'pageview');
-      
     </script>
   </head>
   <body class="article-detail">
@@ -30,28 +29,28 @@
     <div id="content">
       <div class="content-wrap">
         <article class="article">
-          <section class="content"><p>In which I finish my first&nbsp;game</p>
+          <section class="content"><p>In which I finish my first<span class="widont">&nbsp;</span>game</p>
 <p><span class="more"><span></p>
 <h4 id="description">Description</h4>
-<p>The Seven Day Roguelike challenge (<a href="http://www.roguebasin.com/index.php?title=Seven_Day_Roguelike_Challenge"><span class="caps">7DRL</span></a>) has been an annual competition since around 2005. The premise is simple: create a roguelike game in seven&nbsp;days! </p>
+<p>The Seven Day Roguelike challenge (<a href="http://www.roguebasin.com/index.php?title=Seven_Day_Roguelike_Challenge"><span class="caps">7DRL</span></a>) has been an annual competition since around 2005. The premise is simple: create a roguelike game in seven<span class="widont">&nbsp;</span>days! </p>
 <p>From <a href="https://en.wikipedia.org/wiki/Roguelike">wikipedia</a>: </p>
 <blockquote>
-<p>Roguelike is a subgenre of role-playing video games characterized by a dungeon crawl through procedurally generated game levels, turn-based gameplay, tile-based graphics, and permanent death of the&nbsp;player-character.</p>
+<p>Roguelike is a subgenre of role-playing video games characterized by a dungeon crawl through procedurally generated game levels, turn-based gameplay, tile-based graphics, and permanent death of the<span class="widont">&nbsp;</span>player-character.</p>
 </blockquote>
-<p>I, like many developers before me, have a long history of half-started games stretching back to middle school (our half-finished Pokemon clone on the <span class="caps">TI</span>-83+ was legendary) so the concept of actually finishing something was very appealing to me. I teamed up with a friend and we were&nbsp;off!</p>
+<p>I, like many developers before me, have a long history of half-started games stretching back to middle school (our half-finished Pokemon clone on the <span class="caps">TI</span>-83+ was legendary) so the concept of actually finishing something was very appealing to me. I teamed up with a friend and we were<span class="widont">&nbsp;</span>off!</p>
 <p><img src="/articles/rgb/rgb.png" alt="RGB">
-<em>Gotta love those&nbsp;rats</em></p>
-<p>Our idea was somewhat simple: create a simple dungeon crawler in which you could shift between three dimensions (red, green, blue - hence the name of the game). Initially we were thinking you could gain experience in a dimension for staying in it longer but in the end we made it so that each dimension had its own “special&nbsp;move”.</p>
+<em>Gotta love those<span class="widont">&nbsp;</span>rats</em></p>
+<p>Our idea was somewhat simple: create a simple dungeon crawler in which you could shift between three dimensions (red, green, blue - hence the name of the game). Initially we were thinking you could gain experience in a dimension for staying in it longer but in the end we made it so that each dimension had its own “special<span class="widont">&nbsp;</span>move”.</p>
 <p><img src="/articles/rgb/green.png" alt="red">
-<em>Our helpful hint to switch&nbsp;dimensions</em></p>
-<p>It’s not the most beautiful or robust (there is a still a bug when going to the next level that I haven’t figured out yet) game in the world, but we made it in seven days! From scratch. Take a <a href="http://bovard.github.io/rgb/">crack at it now</a>! If you get to level 10, consider yourself an <span class="caps">RGB</span>&nbsp;champion.</p>
+<em>Our helpful hint to switch<span class="widont">&nbsp;</span>dimensions</em></p>
+<p>It’s not the most beautiful or robust (there is a still a bug when going to the next level that I haven’t figured out yet) game in the world, but we made it in seven days! From scratch. Take a <a href="http://bovard.github.io/rgb/">crack at it now</a>! If you get to level 10, consider yourself an <span class="caps">RGB</span><span class="widont">&nbsp;</span>champion.</p>
 <p><img src="/articles/rgb/green2.png" alt="green">
-<em>You’re&nbsp;green!</em></p>
+<em>You’re green!</em></p>
 <h4 id="code">Code</h4>
-<p><span class="caps">RGB</span> is played in your browser and uses a combination of html element and canvas to render. We wrote everything from scratch, including the game engine, which was quite the learning experience. You can view the code <a href="https://github.com/bovard/rgb">on github</a>.</p>
-<p>The encapsulation wasn’t the best, <a href="https://github.com/bovard/rgb/blob/master/src/Game.js">Game.js</a> touches rendering, creep ai, input, game logic, and display but I think it was pretty decent for seven days of&nbsp;work.</p>
-<p>Perhaps some of the most gnarly code came when we implemented <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra’s algorithm</a> to help our creeps move a little more intelligently. You can see our very simplistic creep ai&nbsp;here:</p>
-<pre><code class="lang-javascript">    takeCreepTurn: <span class="function"><span class="keyword">function</span>(<span class="params">creepController, dijk, closeQuartersDijk</span>) </span>{
+<p><span class="caps">RGB</span> is played in your browser and uses a combination of html element and canvas to render. We wrote everything from scratch, including the game engine, which was quite the learning experience. You can view the code <a href="https://github.com/bovard/rgb">on<span class="widont">&nbsp;</span>github</a>.</p>
+<p>The encapsulation wasn’t the best, <a href="https://github.com/bovard/rgb/blob/master/src/Game.js">Game.js</a> touches rendering, creep ai, input, game logic, and display but I think it was pretty decent for seven days of<span class="widont">&nbsp;</span>work.</p>
+<p>Perhaps some of the most gnarly code came when we implemented <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra’s algorithm</a> to help our creeps move a little more intelligently. You can see our very simplistic creep ai<span class="widont">&nbsp;</span>here:</p>
+<pre><code class="language-javascript">    takeCreepTurn: <span class="function"><span class="keyword">function</span>(<span class="params">creepController, dijk, closeQuartersDijk</span>) </span>{
         <span class="comment">// attack logic if we are in this dimension</span>
         <span class="keyword">if</span> (creepController.isAdjacentToHero()) {
             creepController.attackHero();
@@ -78,32 +77,30 @@
             } <span class="keyword">else</span> {
                 <span class="keyword">this</span>.doBestAdjacentMove(creepController);
             }
-        }
-</code></pre>
-<p>You can see we borrowed heavily from <a href="http://www.battlecode.org/">battlecode’s api</a> with <code>creepController</code> and <code>canMove</code>. Had I actually made a <code>creepPlayer</code> things might have been much cleaner (and different creeps could have different ai /&nbsp;behaviors).</p>
+        }</code></pre>
+<p>You can see we borrowed heavily from <a href="http://www.battlecode.org/">battlecode’s api</a> with <code>creepController</code> and <code>canMove</code>. Had I actually made a <code>creepPlayer</code> things might have been much cleaner (and different creeps could have different ai /<span class="widont">&nbsp;</span>behaviors).</p>
 <h4 id="results">Results</h4>
-<p><span class="caps">RGB</span> was a success (by 7DRL standards)! We were even featured as the <a href="https://www.reddit.com/r/roguelikes/comments/216bwe/7drl_of_the_day_day_7_rgb/"><span class="caps">7DRL</span> of the Day</a> on reddit and was reviewed a couple times in the <a href="http://7drl.roguetemple.com/Reviews"><span class="caps">7DRL</span> Reviews</a> (thanks to Jabberwock and Yeti for taking the time!) and given an overall score of 2.2 (out of&nbsp;3)</p>
+<p><span class="caps">RGB</span> was a success (by <span class="caps">7DRL</span> standards)! We were even featured as the <a href="https://www.reddit.com/r/roguelikes/comments/216bwe/7drl_of_the_day_day_7_rgb/"><span class="caps">7DRL</span> of the Day</a> on reddit and was reviewed a couple times in the <a href="http://7drl.roguetemple.com/Reviews"><span class="caps">7DRL</span> Reviews</a> (thanks to Jabberwock and Yeti for taking the time!) and given an overall score of 2.2 (out of<span class="widont">&nbsp;</span>3)</p>
 <blockquote>
-<p>“<span class="caps">RGB</span> is a browser roguelike with an interesting multi-dimensional mechanic. Red Green and Blue all operate as separate dimensions of the same dungeon. After the first three levels, where switching is mostly useless and/or instant death, the mechanic becomes very interesting! You can only attach enemies in your same dimension, but you can use other dimensions to escape. The level colors are a bit over-bearing but the dimension switching is cool!” -&nbsp;Yeti</p>
+<p>“<span class="caps">RGB</span> is a browser roguelike with an interesting multi-dimensional mechanic. Red Green and Blue all operate as separate dimensions of the same dungeon. After the first three levels, where switching is mostly useless and/or instant death, the mechanic becomes very interesting! You can only attach enemies in your same dimension, but you can use other dimensions to escape. The level colors are a bit over-bearing but the dimension switching is cool!” -<span class="widont">&nbsp;</span>Yeti</p>
 </blockquote>
-<p>Over the years <span class="caps">RGB</span> has seen surprisingly more play than I expected. I’m not sure who was playing everyday in the summer of 2015, but whoever you are, I salute you! We’ve had players from 48 states (North Dakota and Alaska, looking at you) and there have been close to 4000 sessions in the two years&nbsp;since.</p>
+<p>Over the years <span class="caps">RGB</span> has seen surprisingly more play than I expected. I’m not sure who was playing everyday in the summer of 2015, but whoever you are, I salute you! We’ve had players from 48 states (North Dakota and Alaska, looking at you) and there have been close to 4000 sessions in the two years<span class="widont">&nbsp;</span>since.</p>
 <p><img src="/articles/rgb/analytics.png" alt="Analytics"></p>
-<h6 id="written-05-24-2016">Written&nbsp;05/24/2016</h6>
+<h6 id="written-05-24-2016">Written 05/24/2016</h6>
 </section>
         </article>
       </div>
     </div>
     <footer>
       <div class="content-wrap">
-        <div class="nav"><a href="/">« Full blog</a></div>
+        <div class="nav"><a href="/">&laquo; Full blog</a></div>
         <section class="about"><p><a href="http://github.com/bovard">Github</a>
 <a href="http://twitter.com/bovardt">Twitter</a>
 <a href="http://google.com/+bovardtiberi">Google+</a></p>
 
         </section>
         <section class="copy">
-          <p>&copy; 2016 Bovard Tiberi &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
-          </p>
+          <p>&copy; 2019 Bovard Doerschuk-Tiberi &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a></p>
         </section>
       </div>
     </footer>
