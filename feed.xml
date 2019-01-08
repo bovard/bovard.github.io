@@ -279,8 +279,10 @@ and do Battle Code. Unfortunately none of them wrote a line of code.
 This dampened my spirits but I was ready to push forward!&lt;/p&gt;
 &lt;p&gt;|  |  |
 | —– | —– | —– |
-| &lt;img src=&quot;/articles/battle_code_2011/flying2.png&quot; alt=&quot;Flying&quot;&gt;  | &lt;img src=&quot;/articles/battle_code_2011/light1.png&quot; alt=&quot;Light&quot;&gt; | &lt;img src=&quot;/articles/battle_code_2011/medium2.png&quot; alt=&quot;Medium&quot;&gt; | &lt;img src=&quot;/articles/battle_code_2011/turret2.png&quot; alt=&quot;Turret&quot;&gt; | &lt;img src=&quot;/articles/battle_code_2011/armory2.png&quot; alt=&quot;Armory&quot;&gt; |  &lt;img src=&quot;/articles/battle_code_2011/building2.png&quot; alt=&quot;Building&quot;&gt; |  &lt;img src=&quot;/articles/battle_code_2011/dummy2.png&quot; alt=&quot;Dummy&quot;&gt; | &lt;img src=&quot;/articles/battle_code_2011/factory2.png&quot; alt=&quot;Factory&quot;&gt; | &lt;img src=&quot;/articles/battle_code_2011/recycler2.png&quot; alt=&quot;Recycler&quot;&gt; |&lt;/p&gt;
-&lt;p&gt;######A selection of buildings and units from 2012&lt;/p&gt;
+| &lt;img src=&quot;/articles/battle_code_2011/flying2.png&quot; alt=&quot;Flying&quot;&gt;  | &lt;img src=&quot;/articles/battle_code_2011/light1.png&quot; alt=&quot;Light&quot;&gt; | &lt;img src=&quot;/articles/battle_code_2011/medium2.png&quot; alt=&quot;Medium&quot;&gt; | 
+| &lt;img src=&quot;/articles/battle_code_2011/turret2.png&quot; alt=&quot;Turret&quot;&gt; | &lt;img src=&quot;/articles/battle_code_2011/armory2.png&quot; alt=&quot;Armory&quot;&gt; |  &lt;img src=&quot;/articles/battle_code_2011/building2.png&quot; alt=&quot;Building&quot;&gt; | 
+|  &lt;img src=&quot;/articles/battle_code_2011/dummy2.png&quot; alt=&quot;Dummy&quot;&gt; | &lt;img src=&quot;/articles/battle_code_2011/factory2.png&quot; alt=&quot;Factory&quot;&gt; | &lt;img src=&quot;/articles/battle_code_2011/recycler2.png&quot; alt=&quot;Recycler&quot;&gt; |&lt;/p&gt;
+&lt;h6 id=&quot;a-selection-of-buildings-and-units-from-2012&quot;&gt;A selection of buildings and units from 2012&lt;/h6&gt;
 &lt;p&gt;This year’s unique challenge was modular robots. To start with you chose a chassis
 (heavy, medium, light, or flying). By default each chassis could sense obstacles 1 square in
 each direction, receive messages, and carry a specified weight of components.
